@@ -4,7 +4,7 @@ try:
     from bs4 import BeautifulSoup  # --web beautify and finding
     import sqlite3
     import pafy  # This wont work in Proxy server which block youtube
-    from _dbdata import *  # importing the database for storing the youtube table
+    # from _dbdata import *  # importing the database for storing the youtube table
     # Youtube search based on the webbrowser links
     # ToDo: Use the youtube api rather than using the the web browser
 except Exception as E:
@@ -12,7 +12,7 @@ except Exception as E:
 
 class YouTubeSearch:
     def __init__(self):
-        self.db = db_data()  # creating the database connetion so that it can be connected
+        # self.db = db_data()  # creating the database connetion so that it can be connected
 
     def search(self, search_text='', play_list=False):
         search_text = search_text.strip()
@@ -34,7 +34,7 @@ class YouTubeSearch:
 
         elif play_list:
             found_playlink_list = self.scrap_playlist(search_url)  # A list of play lists
-            self.insert_into_youtube(search_text, search_url, str(found_playlink_list))
+            # self.insert_into_youtube(search_text, search_url, str(found_playlink_list))
             # We are inserting the list of the found playlist.
             print(found_playlink_list[0])
             webbrowser.open(found_playlink_list[0])  # opening the first play list as per specified
@@ -68,8 +68,8 @@ class YouTubeSearch:
 
     ''' Inserting into database for the youtube to implement machine learning for later onwards'''
     # TODO: make the database more efficent
-    def insert_into_youtube(self, Y_Requested_string="", Y_requested_url="", Y_Responce_List=""):
-        self.db.insert_into_youtube(Y_Requested_string, Y_requested_url, Y_Responce_List)
+    #def insert_into_youtube(self, Y_Requested_string="", Y_requested_url="", Y_Responce_List=""):
+        #self.db.insert_into_youtube(Y_Requested_string, Y_requested_url, Y_Responce_List)
     ''' To Insert in to  database which will be later used to '''
 
     ''' Downloading the video description from youtube and others.'''
